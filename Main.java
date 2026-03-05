@@ -7,6 +7,21 @@ public class Main{
     }
 
     public static int binarySearch(int[] array, int target, int left, int right) {
-        
+        int mid = (left+right)/2;
+        int rng = right-left;
+        if(rng == 0&&array[left]==target) {
+            return left;
+        }
+        if(array[mid]<target) {
+            return binarySearch(array, target, mid+1, right);
+        } else if(array[mid]>target) {
+            return binarySearch(array, target, left, mid-1);
+        }
+
+        if(array[mid]==target) {
+            return mid;
+        }
+        return -1; //i guess
     }
+
 }
